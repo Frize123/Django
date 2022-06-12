@@ -1,0 +1,99 @@
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+.word_new{
+    font-size:40px;
+    text-align: center;
+    word-spacing: 250px;
+}
+.word_new1{
+    font-size:40px;
+    text-align: center;
+    word-spacing:120px;
+}
+nav
+{
+background-color: #7e7e7e;
+width: 100%;
+height: 10vh;
+top:0;
+display: flex;
+position: fixed;
+border-bottom: 5px solid #4d4d4d;
+}
+.text
+{
+  margin: 500px;
+}
+
+main .features{
+  float:left;
+  color: #fff;
+  margin-top: 10px;
+  text-align: center;
+  width: 75%;
+}
+body{
+    padding:5% 0 0 0;
+    background-color: #bbbbbb;
+    margin-bottom: 10%;
+}
+.news{
+  color: #white;
+  float: left;
+  clear:both;
+  width: 600px;
+  margin: 20px 30%;
+  text-align: center;
+  border: 5px solid #4d4d4d;
+}
+.news1{
+  color: #white;
+  float: left;
+  clear:both;
+  width: 600px;
+  margin: 20px 30%;
+  text-align: center;
+}
+
+.a {
+  text-decoration: none;
+}
+
+.bookmark-icon {
+  position: relative;
+  left: 46%;
+  padding: 5px;
+}
+
+.bookmark {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background: url('../img/bookmark-heart.svg');
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}
+
+.bookmark.added {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  background: url('../img/bookmark-heart-fill.svg');
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}

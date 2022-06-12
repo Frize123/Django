@@ -1,0 +1,45 @@
+{% load static %}
+{% load base.base_tags %}
+
+<!doctype html>
+<html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+    content="width-=device-width, user-scalable=no,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <title>База</title>
+
+</head>
+<body>
+  <nav><p class="word_new1"><a href='{% url 'home' %}'>
+      <i class="bi bi-house-door-fill"></i>Главная</a>
+      <a href='{% url 'first' %}'>
+       Пресмыкающиеся</a>
+   <a href='{% url 'second' %}'>Земноводные</a>
+       <a href='{% url 'third' %}'>Млекопитающиеся</a></p></nav>
+
+  {% for el in animals%}
+    <div class="news">
+      <h3>{{el.title}}</h3>
+      <p>{{el.full_text}}</p>
+      {% if user.is_authenticated %}
+      <div data-id="{{ el.id }}" data-type="animal" data-action="bookmark" class="bookmark-icon" title="Избранное">
+        <div class="bookmark {% if el.bookmark_set.all|user_in:user %}added{% endif %}" data-id="{{ el.id }}"> </div>
+      </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+
+  {% if user.is_authenticated %}
+  <div class="news1"><button class="btn btn-success" type="submit"><a href='{% url 'create' %}'>Создать Статью</a></button></div>
+  {% endif %}
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="{% static 'main/js/script.js' %}"></script>
+</body>
+</html>
