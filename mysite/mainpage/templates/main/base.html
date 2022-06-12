@@ -24,6 +24,7 @@
        <a href='{% url 'third' %}'>Млекопитающиеся</a></p></nav>
        <a href='{% url 'register' %}'><p>Форма регистрации</p></a>
 
+
   {% for el in animals%}
     <div class="news">
       <h3>{{el.title}}</h3>
@@ -39,7 +40,7 @@
   {% if user.is_authenticated %}
   <div class="news1"><button class="btn btn-success" type="submit"><a href='{% url 'create' %}'>Создать Статью</a></button></div>
   {% else %}
-  <div class="article_text">Если Вы хотите создать статью или добавить существующую в избранное, то зарегистрируйтесь</div>
+  <p class="article_text">Если Вы хотите создать статью или добавить существующую в избранное, то зарегистрируйтесь</p>
   {% endif %}
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

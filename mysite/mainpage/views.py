@@ -1,5 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login
+
 from .forms import UserRegistrationForm
 from .telegram import send_msg
 from django.shortcuts import render,redirect
@@ -17,7 +21,6 @@ from django.http import HttpResponse
 from django.views import View
 
 
-
 def index(request):
     return render(request, 'main/index.html')
 
@@ -32,6 +35,7 @@ def third(request):
 
 def check(request):
         return render(request, 'main/check.html')
+
 
 def register(request):
     if request.method == 'POST':
@@ -51,6 +55,7 @@ def register(request):
             new_user.set_password(data['password'])
             # Save the User object
             new_user.save()
+            login(request,new_user)
             return render(request, 'main/register_done.html', {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
