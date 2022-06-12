@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
-    <title>База</title>
+    <title>Форум</title>
 
 </head>
 <body>
@@ -22,6 +22,7 @@
        Пресмыкающиеся</a>
    <a href='{% url 'second' %}'>Земноводные</a>
        <a href='{% url 'third' %}'>Млекопитающиеся</a></p></nav>
+       <a href='{% url 'register' %}'><p class="text">Форма регистрации</p></a>
 
   {% for el in animals%}
     <div class="news">
@@ -37,6 +38,8 @@
 
   {% if user.is_authenticated %}
   <div class="news1"><button class="btn btn-success" type="submit"><a href='{% url 'create' %}'>Создать Статью</a></button></div>
+  {% else %}
+  <div class="article_text">Если Вы хотите создать статью или добавить существующую в избранное, то зарегистрируйтесь</div>
   {% endif %}
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
